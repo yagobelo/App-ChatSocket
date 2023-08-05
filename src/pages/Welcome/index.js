@@ -6,15 +6,24 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+import * as Animatable from "react-native-animatable";
 
 export default function Welcome() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <View style={styles.containerHeader}>
+      <Animatable.View
+        animation={"fadeInLeft"}
+        deley={500}
+        style={styles.containerHeader}
+      >
         <Text style={styles.textHeader}>Bem-Vindo(a)</Text>
-      </View>
+      </Animatable.View>
 
-      <View style={styles.containerForm}>
+      <Animatable.View animation={"fadeInUp"} style={styles.containerForm}>
         <Text style={styles.textTitle}>
           Digite um nome de Usuário para entrar no Chat
         </Text>
@@ -24,10 +33,13 @@ export default function Welcome() {
           placeholderTextColor={"white"}
         ></TextInput>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Chat")}
+          style={styles.button}
+        >
           <Text style={styles.textButton}>ENTRAR</Text>
         </TouchableOpacity>
-      </View>
+      </Animatable.View>
     </View>
   );
 }
