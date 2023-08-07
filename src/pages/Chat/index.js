@@ -8,7 +8,14 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 
+import { Message } from "../../components/Message";
+
 export default function Chat() {
+  const primeiraMensagem = "Testando mensagem grande grande grande grande";
+  const segundaMensagem = "Testando mensagem menor";
+  const terceiraMensagem =
+    "Testando mensagem muito muito muito muito muito grande grande grande grande";
+
   return (
     <View style={styles.container}>
       <Animatable.View
@@ -23,7 +30,11 @@ export default function Chat() {
         animation={"zoomIn"}
         delay={1000}
         style={styles.containerChat}
-      ></Animatable.View>
+      >
+        <Message text={primeiraMensagem} />
+        <Message text={segundaMensagem} />
+        <Message text={terceiraMensagem} />
+      </Animatable.View>
 
       <Animatable.View
         animation={"zoomInDown"}
