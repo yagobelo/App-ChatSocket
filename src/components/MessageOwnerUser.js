@@ -3,9 +3,9 @@ import { View, Text, StyleSheet } from "react-native";
 
 import * as Animatable from "react-native-animatable";
 
-export const Message = ({ text }) => {
+export const MessageOwnerUser = ({ text }) => {
   return (
-    <Animatable.View animation={"fadeInRight"} style={styles.container}>
+    <Animatable.View animation={"fadeInLeft"} style={styles.container}>
       <View style={styles.containerMessage}>
         <Text style={styles.text}>{text}</Text>
         <View style={styles.teste}></View>
@@ -20,7 +20,8 @@ export const Message = ({ text }) => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "flex-end",
-    flexDirection: "row",
+    flexDirection: "row-reverse",
+    marginVertical: 5,
   },
   containerMessage: {
     backgroundColor: "#264653",
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontSize: 20,
+    fontSize: 15,
   },
   teste: {
     backgroundColor: "#264653",
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   userName: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: "bold",
   },
 });

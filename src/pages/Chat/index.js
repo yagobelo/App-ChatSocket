@@ -5,16 +5,19 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 
-import { Message } from "../../components/Message";
+import { MessageUser } from "../../components/MessageUser";
+import { MessageOwnerUser } from "../../components/MessageOwnerUser";
 
 export default function Chat() {
   const primeiraMensagem = "Testando mensagem grande grande grande grande";
   const segundaMensagem = "Testando mensagem menor";
   const terceiraMensagem =
-    "Testando mensagem muito muito muito muito muito grande grande grande grande";
+    "Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande, Testando mensagem muito muito muito muito muito grande grande grande grande.";
+  const quartaMessagem = "teste teste teste";
 
   return (
     <View style={styles.container}>
@@ -31,9 +34,16 @@ export default function Chat() {
         delay={1000}
         style={styles.containerChat}
       >
-        <Message text={primeiraMensagem} />
-        <Message text={segundaMensagem} />
-        <Message text={terceiraMensagem} />
+        <ScrollView
+          contentOffset={{ x: 0, y: 999999 }}
+          showsVerticalScrollIndicator={false}
+          style={styles.containerChatScroll}
+        >
+          <MessageUser text={primeiraMensagem} />
+          <MessageUser text={segundaMensagem} />
+          <MessageOwnerUser text={terceiraMensagem} />
+          <MessageUser text={quartaMessagem} />
+        </ScrollView>
       </Animatable.View>
 
       <Animatable.View
@@ -71,12 +81,15 @@ const styles = StyleSheet.create({
   containerChat: {
     backgroundColor: "white",
     width: "90%",
-    height: "80%",
+    maxHeight: "80%",
     alignSelf: "center",
-    padding: 20,
+    padding: 5,
     marginTop: 10,
     borderRadius: 15,
     flex: 2,
+  },
+  containerChatScroll: {
+    paddingHorizontal: 10,
   },
   containerForm: {
     backgroundColor: "white",
